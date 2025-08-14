@@ -1,35 +1,153 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import type { RealtimeChannel } from '@supabase/supabase-js';
+import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { supabase } from './supabase';
 
-function App() {
-  const [count, setCount] = useState(0)
+type VoteOption = 'yes' | 'no';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface Vote {
+    id: number;
+    vote: VoteOption;
+    user_id: string;
 }
 
-export default App
+function App() {
+    const [votes, setVotes] = useState<Vote[]>([]);
+    const [userVote, setUserVote] = useState<VoteOption | null>(null);
+    const [userId] = useState<string>(() => {
+        let id: string | null = localStorage.getItem('user_id');
+        if (!id) {
+            id = uuidv4();
+            localStorage.setItem('user_id', id);
+        }
+        return id;
+    });
+
+    useEffect(() => {
+        getVotes();
+
+        const channel: RealtimeChannel = supabase
+            .channel('votes')
+            .on(
+                'postgres_changes',
+                { event: '*', schema: 'public', table: 'votes' },
+                () => getVotes()
+            )
+            .subscribe();
+
+        return () => {
+            supabase.removeChannel(channel);
+        };
+    }, []);
+
+    async function getVotes() {
+        const { data } = await supabase.from('votes').select();
+
+        const allVotes: Vote[] = data || [];
+        setVotes(allVotes);
+
+        const userVote: Vote | undefined = allVotes.find(
+            (vote) => vote.user_id === userId
+        );
+        setUserVote(userVote?.vote || null);
+    }
+
+    async function castVote(voteType: VoteOption) {
+        if (userVote) {
+            const { error } = await supabase
+                .from('votes')
+                .update({ vote: voteType })
+                .eq('user_id', userId);
+
+            if (error) {
+                console.error('Error updating vote:', error);
+            }
+        } else {
+            const { error } = await supabase
+                .from('votes')
+                .insert({ vote: voteType, user_id: userId });
+
+            if (error) {
+                console.error('Error voting:', error);
+            }
+        }
+    }
+
+    const yesCount: number = votes.filter((vote) => vote.vote === 'yes').length;
+    const noCount: number = votes.filter((vote) => vote.vote === 'no').length;
+    const percentageVotedYes: number = Math.round(
+        (yesCount / votes.length) * 100
+    );
+
+    return (
+        <div style={{ padding: '20px', textAlign: 'center' }}>
+            <h1>Phantom Thief Questionare</h1>
+            <h2>
+                <span>Q</span>Do you <span>believe</span> in the{' '}
+                <span>Phantom Thieves</span>?
+            </h2>
+            <p>
+                <span>A</span>
+                <span>{percentageVotedYes}</span>%
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <p>Yes</p>
+                <p>No</p>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <p>{yesCount} votes</p>
+                <p>{noCount} votes</p>
+            </div>
+            <p>Total votes: {votes.length}</p>
+
+            <div style={{ margin: '20px 0' }}>
+                <button
+                    onClick={() => castVote('yes')}
+                    style={{
+                        padding: '10px 20px',
+                        margin: '0 10px',
+                        backgroundColor:
+                            userVote === 'yes' ? '#16a34a' : '#22c55e',
+                        color: 'white',
+                        border:
+                            userVote === 'yes' ? '2px solid #065f46' : 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                    }}
+                >
+                    Yes
+                </button>
+
+                <button
+                    onClick={() => castVote('no')}
+                    style={{
+                        padding: '10px 20px',
+                        margin: '0 10px',
+                        backgroundColor:
+                            userVote === 'no' ? '#dc2626' : '#ef4444',
+                        color: 'white',
+                        border:
+                            userVote === 'no' ? '2px solid #7f1d1d' : 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                    }}
+                >
+                    No
+                </button>
+            </div>
+
+            {userVote && (
+                <p>
+                    You voted: <strong>{userVote}</strong>
+                </p>
+            )}
+
+            <p>Thank you for your time. Please also leave a comment.</p>
+            <footer>
+                <p>Phantom Aficionado</p>
+            </footer>
+        </div>
+    );
+}
+
+export default App;
