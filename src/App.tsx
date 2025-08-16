@@ -1,7 +1,7 @@
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { OutlinedH1, OutlinedLetter } from './components';
+import { OutlinedH1, OutlinedLetter, OutlinedP } from './components';
 import { supabase } from './supabase';
 
 type VoteOption = 'yes' | 'no';
@@ -80,16 +80,29 @@ function App() {
         votes.length > 0 ? Math.round((yesCount / votes.length) * 100) : 0;
 
     return (
-        <div style={{ padding: '20px', textAlign: 'center' }}>
+        <div style={{ padding: '20px' }}>
             <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
 
-            <h2>
-                <div className="flex items-center">
-                    <OutlinedLetter>Q</OutlinedLetter>
-                    Do you&nbsp;<span>believe</span>&nbsp;in the Phantom
-                    Thieves?
+            <div className="inline-flex items-center">
+                <OutlinedLetter>Q</OutlinedLetter>
+                <div className="leading-[0.689]">
+                    <OutlinedP className="text-persona-red text-[2.25em]">
+                        Do you
+                    </OutlinedP>
+                    <OutlinedP className="text-[2.5em]">
+                        &nbsp;believe&nbsp;
+                    </OutlinedP>
+                    <OutlinedP className="text-persona-red text-[2.25em]">
+                        in the
+                    </OutlinedP>
+                    <OutlinedP className="text-[2.5em]">
+                        &nbsp;Phantom Thieves&nbsp;
+                    </OutlinedP>
+                    <OutlinedP className="text-persona-red text-[2.25em]">
+                        ?
+                    </OutlinedP>
                 </div>
-            </h2>
+            </div>
             <div className="flex items-center">
                 <div className="-rotate-8">
                     <OutlinedLetter>A</OutlinedLetter>
