@@ -1,7 +1,7 @@
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { OutlinedH1 } from './components';
+import { OutlinedH1, OutlinedLetter } from './components';
 import { supabase } from './supabase';
 
 type VoteOption = 'yes' | 'no';
@@ -84,13 +84,18 @@ function App() {
             <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
 
             <h2>
-                <span>Q</span>Do you <span>believe</span> in the{' '}
-                <span>Phantom Thieves</span>?
+                <div className="flex items-center">
+                    <OutlinedLetter>Q</OutlinedLetter>
+                    Do you&nbsp;<span>believe</span>&nbsp;in the Phantom
+                    Thieves?
+                </div>
             </h2>
-            <p>
-                <span>A</span>
+            <div className="flex items-center">
+                <div className="-rotate-8">
+                    <OutlinedLetter>A</OutlinedLetter>
+                </div>
                 <span>{percentageVotedYes ?? ''}</span>%
-            </p>
+            </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <p>Yes</p>
                 <p>No</p>

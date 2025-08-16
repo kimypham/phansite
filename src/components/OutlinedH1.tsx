@@ -1,12 +1,10 @@
 import React from 'react';
+import type { OutlinedTextProps } from '../types';
+import { OutlinedHiddenSpan } from './OutlinedHiddenSpan';
 
-interface OutlinedH1Props {
-    children: React.ReactNode;
-}
-
-export const OutlinedH1: React.FC<OutlinedH1Props> = ({ children }) => (
-    <div className="fixed font-persona5main tracking-[-0.32em] text-[2rem] [word-spacing:2rem] text-persona-red">
-        <h1>{children}</h1>
-        <span aria-hidden="true">{children}</span>
-    </div>
+export const OutlinedH1: React.FC<OutlinedTextProps> = ({ children }) => (
+    <h1 className="relative [-webkit-text-stroke:10px_black] font-persona5main tracking-[-0.32em] text-[2rem] [word-spacing:2rem] text-persona-red pointer-events-none">
+        {children}
+        <OutlinedHiddenSpan>{children}</OutlinedHiddenSpan>
+    </h1>
 );
