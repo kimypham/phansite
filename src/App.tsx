@@ -1,7 +1,7 @@
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { OutlinedH1, OutlinedLetter, OutlinedP } from './components';
+import { OutlinedH1, OutlinedP, OutlinedSpan } from './components';
 import { supabase } from './supabase';
 
 type VoteOption = 'yes' | 'no';
@@ -84,7 +84,9 @@ function App() {
             <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
 
             <div className="inline-flex items-center">
-                <OutlinedLetter>Q</OutlinedLetter>
+                <OutlinedSpan className="text-persona-red text-[4rem] tracking-[-0.32em] pr-4">
+                    Q
+                </OutlinedSpan>
                 <div className="leading-[0.689]">
                     <OutlinedP className="text-persona-red text-[2.25em]">
                         Do you
@@ -103,11 +105,24 @@ function App() {
                     </OutlinedP>
                 </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-baseline leading-[1]">
                 <div className="-rotate-8">
-                    <OutlinedLetter>A</OutlinedLetter>
+                    <OutlinedSpan className="text-persona-red text-[4rem] tracking-[-0.32em]">
+                        A
+                    </OutlinedSpan>
                 </div>
-                <span>{percentageVotedYes ?? ''}</span>%
+                <OutlinedSpan className="text-gold-100 text-[2.5em] tracking-[-0.5em]">
+                    YES
+                </OutlinedSpan>
+                <OutlinedSpan
+                    className="text-gold-100 text-[9.25em]"
+                    font="font-franciosOne"
+                >
+                    {percentageVotedYes ?? ''}
+                </OutlinedSpan>
+                <OutlinedSpan className="text-gold-100 text-[4em]">
+                    %
+                </OutlinedSpan>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <p>Yes</p>
