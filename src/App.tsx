@@ -1,6 +1,7 @@
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { OutlinedH1 } from './components';
 import { supabase } from './supabase';
 
 type VoteOption = 'yes' | 'no';
@@ -75,20 +76,20 @@ function App() {
 
     const yesCount: number = votes.filter((vote) => vote.vote === 'yes').length;
     const noCount: number = votes.filter((vote) => vote.vote === 'no').length;
-    const percentageVotedYes: number = Math.round(
-        (yesCount / votes.length) * 100
-    );
+    const percentageVotedYes: number =
+        votes.length > 0 ? Math.round((yesCount / votes.length) * 100) : 0;
 
     return (
         <div style={{ padding: '20px', textAlign: 'center' }}>
-            <h1>Phantom Thief Questionare</h1>
+            <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
+
             <h2>
                 <span>Q</span>Do you <span>believe</span> in the{' '}
                 <span>Phantom Thieves</span>?
             </h2>
             <p>
                 <span>A</span>
-                <span>{percentageVotedYes}</span>%
+                <span>{percentageVotedYes ?? ''}</span>%
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <p>Yes</p>
@@ -99,7 +100,6 @@ function App() {
                 <p>{noCount} votes</p>
             </div>
             <p>Total votes: {votes.length}</p>
-
             <div style={{ margin: '20px 0' }}>
                 <button
                     onClick={() => castVote('yes')}
@@ -135,13 +135,11 @@ function App() {
                     No
                 </button>
             </div>
-
             {userVote && (
                 <p>
                     You voted: <strong>{userVote}</strong>
                 </p>
             )}
-
             <p>Thank you for your time. Please also leave a comment.</p>
             <footer>
                 <p>Phantom Aficionado</p>

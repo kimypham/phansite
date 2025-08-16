@@ -1,6 +1,18 @@
 @import 'tailwindcss';
 
+@font-face {
+    font-family: 'p5hatty';
+    src: url('../src/assets/fonts/p5hatty-1.ttf');
+}
+
+@font-face {
+    font-family: 'persona5main';
+    src: url('../src/assets/fonts/Persona5main.ttf');
+}
+
 @theme {
+    --font-persona5main: 'persona5main', sans-serif;
+    --font-p5hatty: 'p5hatty', sans-serif;
     --color-persona-red: #c60000;
     --color-gold-100: #ffd84d;
     --color-gold-200: #fc7918;
@@ -39,9 +51,16 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+.fixed {
+    position: relative;
+    -webkit-text-stroke: 10px black;
+}
+.fixed span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-text-stroke: 0;
+    pointer-events: none;
 }
 
 button {
