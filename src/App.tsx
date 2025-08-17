@@ -5,7 +5,7 @@ import {
     OutlinedGoldenGradientSpan,
     OutlinedH1,
     OutlinedP,
-    OutlinedSpan,
+    OutlinedPUppercase,
 } from './components';
 import { supabase } from './supabase';
 
@@ -89,9 +89,9 @@ function App() {
             <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
 
             <div className="inline-flex items-center">
-                <OutlinedSpan className="text-persona-red text-[4rem] tracking-[-0.32em] pr-4">
+                <OutlinedPUppercase className="text-persona-red text-[4rem] tracking-[-0.32em] pr-4">
                     Q
-                </OutlinedSpan>
+                </OutlinedPUppercase>
                 <div className="leading-[0.689]">
                     <OutlinedP className="text-persona-red text-[2.25em]">
                         Do you
@@ -112,27 +112,33 @@ function App() {
             </div>
             <div className="flex items-baseline leading-[1]">
                 <div className="-rotate-8">
-                    <OutlinedSpan className="text-persona-red text-[4rem] tracking-[-0.32em]">
+                    <OutlinedPUppercase className="text-persona-red text-[4rem] tracking-[-0.32em]">
                         A
-                    </OutlinedSpan>
+                    </OutlinedPUppercase>
                 </div>
-                <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.5em]">
-                    YE<span style={{ letterSpacing: '0' }}>S</span>
-                </OutlinedGoldenGradientSpan>
-                <OutlinedGoldenGradientSpan
-                    className="text-[9.25em] pr-3"
-                    font="font-franciosOne"
-                >
-                    {percentageVotedYes ?? ''}
-                </OutlinedGoldenGradientSpan>
+                <p>
+                    <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.5em]">
+                        YE<span style={{ letterSpacing: '0' }}>S</span>
+                    </OutlinedGoldenGradientSpan>
+                    <OutlinedGoldenGradientSpan
+                        className="text-[9.25em] pr-3"
+                        font="font-franciosOne"
+                    >
+                        {percentageVotedYes ?? ''}
+                    </OutlinedGoldenGradientSpan>
 
-                <OutlinedGoldenGradientSpan className="text-[4em]">
-                    %
-                </OutlinedGoldenGradientSpan>
+                    <OutlinedGoldenGradientSpan className="text-[4em]">
+                        %
+                    </OutlinedGoldenGradientSpan>
+                </p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <p>Yes</p>
-                <p>No</p>
+                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
+                    Yes
+                </OutlinedPUppercase>
+                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
+                    No
+                </OutlinedPUppercase>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <p>{yesCount} votes</p>
