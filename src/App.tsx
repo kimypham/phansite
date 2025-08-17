@@ -1,7 +1,12 @@
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { OutlinedH1, OutlinedP, OutlinedSpan } from './components';
+import {
+    OutlinedGoldenGradientSpan,
+    OutlinedH1,
+    OutlinedP,
+    OutlinedSpan,
+} from './components';
 import { supabase } from './supabase';
 
 type VoteOption = 'yes' | 'no';
@@ -91,13 +96,13 @@ function App() {
                     <OutlinedP className="text-persona-red text-[2.25em]">
                         Do you
                     </OutlinedP>
-                    <OutlinedP className="text-[2.5em]">
+                    <OutlinedP className="text-white text-[2.5em]">
                         &nbsp;believe&nbsp;
                     </OutlinedP>
                     <OutlinedP className="text-persona-red text-[2.25em]">
                         in the
                     </OutlinedP>
-                    <OutlinedP className="text-[2.5em]">
+                    <OutlinedP className="text-white text-[2.5em]">
                         &nbsp;Phantom Thieves&nbsp;
                     </OutlinedP>
                     <OutlinedP className="text-persona-red text-[2.25em]">
@@ -111,18 +116,19 @@ function App() {
                         A
                     </OutlinedSpan>
                 </div>
-                <OutlinedSpan className="text-gold-100 text-[2.5em] tracking-[-0.5em]">
-                    YES
-                </OutlinedSpan>
-                <OutlinedSpan
-                    className="text-gold-100 text-[9.25em]"
+                <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.5em]">
+                    YE<span style={{ letterSpacing: '0' }}>S</span>
+                </OutlinedGoldenGradientSpan>
+                <OutlinedGoldenGradientSpan
+                    className="text-[9.25em] pr-3"
                     font="font-franciosOne"
                 >
                     {percentageVotedYes ?? ''}
-                </OutlinedSpan>
-                <OutlinedSpan className="text-gold-100 text-[4em]">
+                </OutlinedGoldenGradientSpan>
+
+                <OutlinedGoldenGradientSpan className="text-[4em]">
                     %
-                </OutlinedSpan>
+                </OutlinedGoldenGradientSpan>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <p>Yes</p>
