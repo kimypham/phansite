@@ -138,19 +138,26 @@ function App() {
             </div>
             <div className="relative">
                 <Bar percentageVotedYes={percentageVotedYes} />
-                <div className="absolute inset-0 flex justify-between items-end bottom-[-1em]">
-                    <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
-                        Yes
-                    </OutlinedPUppercase>
-                    <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] mr-[0.3em]">
-                        No
-                    </OutlinedPUppercase>
+                <div className="absolute inset-0 flex justify-between items-center bottom-[-5em] md:bottom-[-6em]">
+                    <div className="flex flex-col leading-none">
+                        <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
+                            Yes
+                        </OutlinedPUppercase>
+                        <OutlinedP className="text-[1.5em]">
+                            {yesCount} votes
+                        </OutlinedP>
+                    </div>
+                    <div className="flex flex-col leading-none">
+                        <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] mr-[0.3em]">
+                            No
+                        </OutlinedPUppercase>
+                        <OutlinedP className="text-[1.5em]">
+                            {noCount} votes
+                        </OutlinedP>
+                    </div>
                 </div>
             </div>
-            <div className="flex justify-between">
-                <OutlinedP className="text-[1.5em]">{yesCount} votes</OutlinedP>
-                <OutlinedP className="text-[1.5em]">{noCount} votes</OutlinedP>
-            </div>
+            <div className="flex justify-between"></div>
             <div style={{ margin: '20px 0' }}>
                 <button
                     onClick={() => castVote('yes')}
