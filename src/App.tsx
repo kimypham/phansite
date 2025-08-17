@@ -135,15 +135,22 @@ function App() {
                     </OutlinedGoldenGradientSpan>
                 </p>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
-                    Yes
-                </OutlinedPUppercase>
-                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] mr-[0.3em]">
-                    No
-                </OutlinedPUppercase>
+            <div className="relative">
+                <img
+                    src="src/assets/bar/bar.svg"
+                    className="w-full"
+                    alt="Description"
+                />
+                <div className="absolute inset-0 flex justify-between items-end bottom-[-1em]">
+                    <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
+                        Yes
+                    </OutlinedPUppercase>
+                    <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] mr-[0.3em]">
+                        No
+                    </OutlinedPUppercase>
+                </div>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div className="flex justify-between">
                 <OutlinedP className="text-[1.5em]">{yesCount} votes</OutlinedP>
                 <OutlinedP className="text-[1.5em]">{noCount} votes</OutlinedP>
             </div>
