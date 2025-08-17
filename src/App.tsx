@@ -110,7 +110,7 @@ function App() {
                     </OutlinedP>
                 </div>
             </div>
-            <div className="flex items-baseline leading-[1]">
+            <div className="flex items-baseline leading-[1] w-fit">
                 <div className="-rotate-8">
                     <OutlinedPUppercase className="text-persona-red text-[4rem] tracking-[-0.32em]">
                         A
@@ -121,7 +121,7 @@ function App() {
                         YE<span style={{ letterSpacing: '0' }}>S</span>
                     </OutlinedGoldenGradientSpan>
                     <OutlinedGoldenGradientSpan
-                        className="text-[9.25em] pr-3"
+                        className="text-[9.25em]"
                         font="font-franciosOne"
                     >
                         {percentageVotedYes ?? ''}
@@ -133,18 +133,17 @@ function App() {
                 </p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
+                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
                     Yes
                 </OutlinedPUppercase>
-                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
+                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] mr-[0.3em]">
                     No
                 </OutlinedPUppercase>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <p>{yesCount} votes</p>
-                <p>{noCount} votes</p>
+                <OutlinedP className="text-[1.5em]">{yesCount} votes</OutlinedP>
+                <OutlinedP className="text-[1.5em]">{noCount} votes</OutlinedP>
             </div>
-            <p>Total votes: {votes.length}</p>
             <div style={{ margin: '20px 0' }}>
                 <button
                     onClick={() => castVote('yes')}
@@ -160,7 +159,7 @@ function App() {
                         cursor: 'pointer',
                     }}
                 >
-                    Yes
+                    <OutlinedP className="text-[2em]">Yes</OutlinedP>
                 </button>
 
                 <button
@@ -177,17 +176,23 @@ function App() {
                         cursor: 'pointer',
                     }}
                 >
-                    No
+                    <OutlinedP className="text-[2em]">No</OutlinedP>
                 </button>
             </div>
-            {userVote && (
-                <p>
-                    You voted: <strong>{userVote}</strong>
-                </p>
-            )}
-            <p>Thank you for your time. Please also leave a comment.</p>
+            <div className="flex flex-col">
+                {userVote && (
+                    <OutlinedP className="text-[1.5em]">
+                        You voted {userVote}
+                    </OutlinedP>
+                )}
+                <OutlinedP className="text-[1.5em]">
+                    Thank you for your time. Please also leave a comment.
+                </OutlinedP>
+            </div>
             <footer>
-                <p>Phantom Aficionado</p>
+                <OutlinedP className="text-[1.5em]">
+                    Phantom Aficionado
+                </OutlinedP>
             </footer>
         </div>
     );
