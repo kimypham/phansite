@@ -88,7 +88,35 @@ function App() {
         votes.length > 0 ? Math.round((yesCount / votes.length) * 100) : 0;
 
     return (
-        <div style={{ padding: '20px' }}>
+        <div>
+            <img
+                src="src/assets/bar/top-triangle.svg"
+                className="w-full md:max-w-1/2 top-0 md:top-[-1em] left-0 absolute"
+                alt="Bar"
+                draggable="false"
+            />
+            {window.innerWidth < 768 ? (
+                <img
+                    src="src/assets/bar/middle-triangle.svg"
+                    className="w-full max-h-2/3 top-[5em] left-0 absolute"
+                    alt="Bar"
+                    draggable="false"
+                />
+            ) : (
+                <img
+                    src="src/assets/bar/middle-triangle-desktop.svg"
+                    className="w-full h-full left-0 top-[-1em] md:top-[-3em] absolute scale-y-[70%]"
+                    alt="Bar"
+                    draggable="false"
+                />
+            )}
+            <img
+                src="src/assets/bar/bottom-triangle.svg"
+                className="w-full md:max-h-2/3 bottom-0 md:bottom-[-5em] md:scale-y-[50%] left-0 absolute"
+                alt="Bar"
+                draggable="false"
+            />
+
             <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
 
             <div className="inline-flex items-center">
