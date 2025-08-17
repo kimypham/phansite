@@ -10,13 +10,8 @@
     src: url('../src/assets/fonts/Persona5main.ttf');
 }
 
-@font-face {
-    font-family: 'Francios One';
-    src: url('https://fonts.googleapis.com/css2?family=Francois+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-}
-
 @theme {
-    --font-franciosOne: 'Francios One', sans-serif;
+    --font-francoisOne: 'Francois One', sans-serif;
     --font-persona5main: 'persona5main', sans-serif;
     --font-p5hatty: 'p5hatty', sans-serif;
     --color-persona-red: #c60000;

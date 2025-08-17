@@ -122,12 +122,15 @@ function App() {
                     </OutlinedGoldenGradientSpan>
                     <OutlinedGoldenGradientSpan
                         className="text-[9.25em]"
-                        font="font-franciosOne"
+                        font="font-francoisOne"
                     >
                         {percentageVotedYes ?? ''}
                     </OutlinedGoldenGradientSpan>
 
-                    <OutlinedGoldenGradientSpan className="text-[4em]">
+                    <OutlinedGoldenGradientSpan
+                        className="text-[4em]"
+                        font="font-francoisOne"
+                    >
                         %
                     </OutlinedGoldenGradientSpan>
                 </p>
