@@ -2,6 +2,7 @@ import type { RealtimeChannel } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {
+    Bar,
     OutlinedGoldenGradientSpan,
     OutlinedH1,
     OutlinedP,
@@ -136,11 +137,7 @@ function App() {
                 </p>
             </div>
             <div className="relative">
-                <img
-                    src="src/assets/bar/bar.svg"
-                    className="w-full"
-                    alt="Description"
-                />
+                <Bar percentageVotedYes={percentageVotedYes} />
                 <div className="absolute inset-0 flex justify-between items-end bottom-[-1em]">
                     <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
                         Yes
