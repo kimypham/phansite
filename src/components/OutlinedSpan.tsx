@@ -9,7 +9,7 @@ export const OutlinedSpan: React.FC<OutlinedSpanProps> = ({
     childClassName,
 }) => (
     <span
-        className={`${className} ${font} inline-block relative [-webkit-text-stroke:12px_black] [word-spacing:2rem] pointer-events-none`}
+        className={`${className} ${font} inline-block relative [-webkit-text-stroke:12px_black] pointer-events-none box-border w-fit min-w-fit`}
     >
         {children}
         <OutlinedHiddenSpan className={childClassName}>

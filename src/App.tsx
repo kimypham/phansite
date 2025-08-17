@@ -30,6 +30,8 @@ function App() {
         return id;
     });
 
+    const [isHovering, setIsHovering] = useState<VoteOption | null>(null);
+
     useEffect(() => {
         getVotes();
 
@@ -136,74 +138,97 @@ function App() {
                     </OutlinedGoldenGradientSpan>
                 </p>
             </div>
-            <div className="relative">
+            <div className="relative mb-10 md:mb-5">
                 <Bar percentageVotedYes={percentageVotedYes} />
                 <div className="absolute inset-0 flex justify-between items-center bottom-[-5em] md:bottom-[-6em]">
-                    <div className="flex flex-col leading-none">
-                        <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
-                            Yes
-                        </OutlinedPUppercase>
-                        <OutlinedP className="text-[1.5em]">
-                            {yesCount} votes
-                        </OutlinedP>
-                    </div>
-                    <div className="flex flex-col leading-none">
-                        <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] mr-[0.3em]">
-                            No
-                        </OutlinedPUppercase>
-                        <OutlinedP className="text-[1.5em]">
-                            {noCount} votes
-                        </OutlinedP>
-                    </div>
+                    <button onClick={() => castVote('yes')}>
+                        <div
+                            className="flex flex-col leading-none cursor-pointer"
+                            onMouseEnter={() => setIsHovering('yes')}
+                            onMouseLeave={() => setIsHovering(null)}
+                        >
+                            {(isHovering === 'yes' || userVote === 'yes') &&
+                            isHovering !== 'no' ? (
+                                <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
+                                    YE
+                                    <span style={{ letterSpacing: '0' }}>
+                                        S
+                                    </span>
+                                </OutlinedGoldenGradientSpan>
+                            ) : (
+                                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
+                                    Yes
+                                </OutlinedPUppercase>
+                            )}
+
+                            {(isHovering === 'yes' || userVote === 'yes') &&
+                            isHovering !== 'no' ? (
+                                <OutlinedGoldenGradientSpan
+                                    className="text-[1.5em]"
+                                    font="font-p5hatty"
+                                >
+                                    {yesCount} votes
+                                </OutlinedGoldenGradientSpan>
+                            ) : (
+                                <OutlinedP className="text-[1.5em]">
+                                    {yesCount} votes
+                                </OutlinedP>
+                            )}
+                        </div>
+                    </button>
+
+                    <button onClick={() => castVote('no')}>
+                        <div
+                            className="flex flex-col leading-none cursor-pointer"
+                            onMouseEnter={() => setIsHovering('no')}
+                            onMouseLeave={() => setIsHovering(null)}
+                        >
+                            {(isHovering === 'no' || userVote === 'no') &&
+                            isHovering !== 'yes' ? (
+                                <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.35em]">
+                                    N
+                                    <span style={{ letterSpacing: '0' }}>
+                                        O
+                                    </span>
+                                </OutlinedGoldenGradientSpan>
+                            ) : (
+                                <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
+                                    N
+                                    <span style={{ letterSpacing: '0' }}>
+                                        O
+                                    </span>
+                                </OutlinedPUppercase>
+                            )}
+
+                            {(isHovering === 'no' || userVote === 'no') &&
+                            isHovering !== 'yes' ? (
+                                <OutlinedGoldenGradientSpan
+                                    className="text-[1.5em]"
+                                    font="font-p5hatty"
+                                >
+                                    {noCount} votes
+                                </OutlinedGoldenGradientSpan>
+                            ) : (
+                                <OutlinedP className="text-[1.5em]">
+                                    {noCount} votes
+                                </OutlinedP>
+                            )}
+                        </div>
+                    </button>
                 </div>
             </div>
-            <div className="flex justify-between"></div>
-            <div style={{ margin: '20px 0' }}>
-                <button
-                    onClick={() => castVote('yes')}
-                    style={{
-                        padding: '10px 20px',
-                        margin: '0 10px',
-                        backgroundColor:
-                            userVote === 'yes' ? '#16a34a' : '#22c55e',
-                        color: 'white',
-                        border:
-                            userVote === 'yes' ? '2px solid #065f46' : 'none',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                    }}
-                >
-                    <OutlinedP className="text-[2em]">Yes</OutlinedP>
-                </button>
 
-                <button
-                    onClick={() => castVote('no')}
-                    style={{
-                        padding: '10px 20px',
-                        margin: '0 10px',
-                        backgroundColor:
-                            userVote === 'no' ? '#dc2626' : '#ef4444',
-                        color: 'white',
-                        border:
-                            userVote === 'no' ? '2px solid #7f1d1d' : 'none',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                    }}
-                >
-                    <OutlinedP className="text-[2em]">No</OutlinedP>
-                </button>
-            </div>
-            <div className="flex flex-col">
-                {userVote && (
-                    <OutlinedP className="text-[1.5em]">
-                        You voted {userVote}
-                    </OutlinedP>
-                )}
+            <div className="flex flex-col items-center text-center">
+                <OutlinedP className="text-[1.5em]">
+                    {userVote
+                        ? `You voted ${userVote}`
+                        : 'Click on "YES" or "NO" above to vote.'}
+                </OutlinedP>
                 <OutlinedP className="text-[1.5em]">
                     Thank you for your time. Please also leave a comment.
                 </OutlinedP>
             </div>
-            <footer>
+            <footer className="text-center">
                 <OutlinedP className="text-[1.5em]">
                     Phantom Aficionado
                 </OutlinedP>
