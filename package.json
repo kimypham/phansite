@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": ".",
+    "homepage": "https://kimypham.github.io/phansite",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
