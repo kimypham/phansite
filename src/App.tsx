@@ -123,30 +123,30 @@ function App() {
                 <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
 
                 <div className="inline-flex items-center">
-                    <OutlinedPUppercase className="text-persona-red text-[4rem] tracking-[-0.32em] pr-4">
+                    <OutlinedPUppercase className="text-persona-red text-[4em] tracking-[-0.32em] pr-4">
                         Q
                     </OutlinedPUppercase>
                     <div className="leading-[0.689]">
-                        <OutlinedP className="text-persona-red text-[2.25em]">
+                        <OutlinedP className="text-persona-red text-[2em]">
                             Do you
                         </OutlinedP>
                         <OutlinedP className="text-white text-[2.5em]">
                             &nbsp;believe&nbsp;
                         </OutlinedP>
-                        <OutlinedP className="text-persona-red text-[2.25em]">
+                        <OutlinedP className="text-persona-red text-[2em]">
                             in the
                         </OutlinedP>
                         <OutlinedP className="text-white text-[2.5em]">
                             &nbsp;Phantom Thieves&nbsp;
                         </OutlinedP>
-                        <OutlinedP className="text-persona-red text-[2.25em]">
+                        <OutlinedP className="text-persona-red text-[2em]">
                             ?
                         </OutlinedP>
                     </div>
                 </div>
                 <div className="flex items-baseline leading-[1] w-fit">
                     <div className="-rotate-8">
-                        <OutlinedPUppercase className="text-persona-red text-[4rem] tracking-[-0.32em]">
+                        <OutlinedPUppercase className="text-persona-red text-[4em] tracking-[-0.32em]">
                             A
                         </OutlinedPUppercase>
                     </div>
@@ -284,7 +284,7 @@ function App() {
                             </OutlinedP>
                         </a>
                     </div>
-                    <OutlinedP className="text-[0.75em] w-max-[1000px]">
+                    <OutlinedP className="text-[1em] w-max-[1000px]">
                         © ATLUS. © SEGA. All rights reserved. PERSONA and all
                         related elements are trademarks of ATLUS Co., Ltd. This
                         is an unofficial fan recreation created for
