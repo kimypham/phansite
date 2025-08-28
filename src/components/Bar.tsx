@@ -15,12 +15,12 @@ const adjustedPercentage = (percentage: number) => {
 export const Bar = ({ percentageVotedYes }: { percentageVotedYes: number }) => (
     <>
         <img
-            src="src/assets/bar/bar.svg"
+            src="./assets/bar/bar.svg"
             className="w-full px-[1.25em]"
             alt="Bar"
         />
         <img
-            src="src/assets/bar/bar-fill.svg"
+            src="./assets/bar/bar-fill.svg"
             className="absolute inset-0 w-full px-[1.25em] transition-all duration-900 ease-out"
             style={{
                 clipPath: `inset(0 ${

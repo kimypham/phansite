@@ -92,28 +92,28 @@ function App() {
             <div className="w-max-[1000px] justify-self-center p-[20px]">
                 <div className="-z-10">
                     <img
-                        src="src/assets/background/top-triangle.svg"
+                        src="./assets/background/top-triangle.svg"
                         className="w-full md:max-w-1/2 top-0 md:top-[-1em] left-0 fixed -z-5"
                         alt="Black triangle used in background"
                         draggable="false"
                     />
                     {window.innerWidth < 768 ? (
                         <img
-                            src="src/assets/background/middle-triangle.svg"
+                            src="./assets/background/middle-triangle.svg"
                             className="w-full max-h-2/3 top-[5em] left-0 fixed -z-5"
                             alt="Black triangle used in background"
                             draggable="false"
                         />
                     ) : (
                         <img
-                            src="src/assets/background/middle-triangle-desktop.svg"
+                            src="./assets/background/middle-triangle-desktop.svg"
                             className="w-full h-full left-0 top-[-1em] md:top-[-3em] fixed scale-y-[70%] -z-5"
                             alt="Black triangle used in background"
                             draggable="false"
                         />
                     )}
                     <img
-                        src="src/assets/background/bottom-triangle.svg"
+                        src="./assets/background/bottom-triangle.svg"
                         className="w-full md:max-h-2/3 bottom-0 md:bottom-[-5em] md:scale-y-[50%] left-0 fixed -z-50"
                         alt="Black triangle used in background"
                         draggable="false"
@@ -259,7 +259,7 @@ function App() {
                         Thank you for your time. Please also leave a comment.
                     </OutlinedP>
                     <img
-                        src="src/assets/logo.png"
+                        src="./assets/logo.png"
                         className="w-10 h-10 mb-3"
                         alt="Tophat and mask with flames coming out from the mask"
                         draggable="false"

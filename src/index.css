@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'p5hatty';
-    src: url('../src/assets/fonts/p5hatty-1.ttf');
+    src: url('../public/assets/fonts/p5hatty-1.ttf');
 }
 
 @font-face {
     font-family: 'persona5main';
-    src: url('../src/assets/fonts/Persona5main.ttf');
+    src: url('../public/assets/fonts/p5hatty-1.ttf');
 }
 
 @theme {
