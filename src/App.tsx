@@ -88,178 +88,191 @@ function App() {
         votes.length > 0 ? Math.round((yesCount / votes.length) * 100) : 0;
 
     return (
-        <div>
-            <div
-                id="main-body"
-                className="w-max-[1000px] justify-self-center p-[10px]"
-            >
-                <div className="-z-10">
-                    <svg
-                        className="h-screen w-screen top-0 left-0 fixed -z-10"
-                        preserveAspectRatio="none"
-                        viewBox="0 0 393 852"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M-0.924805 671.006L0 671.146V852H-1.5V670.918L-0.924805 671.006ZM394.075 731.006L394.5 731.07V852H393V730.842L394.075 731.006ZM393 730.842L0 671.146V571.009L393 348.64V730.842ZM0 571.009L-0.753906 571.436L-1.5 571.857V222.222L-1.12988 222.122L0 221.818V571.009ZM394.5 347.792L394.246 347.936L393 348.64V116.251L393.87 116.018L394.5 115.848V347.792ZM393 116.251L0 221.818V48.2695L195.618 0.485352L195.56 0H393V116.251ZM195.56 0H0V48.2695L-0.881836 48.4854L-1.5 48.6367V-0.5H195.5L195.56 0Z"
-                            fill="#C60000"
-                        />
-                    </svg>
-                </div>
-
-                <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
-
-                <div className="inline-flex items-center">
-                    <OutlinedPUppercase className="text-persona-red text-[4em] tracking-[-0.32em] pr-4">
-                        Q
-                    </OutlinedPUppercase>
-                    <div className="leading-[0.689]">
-                        <OutlinedP className="text-persona-red text-[2em]">
-                            Do you
-                        </OutlinedP>
-                        <OutlinedP className="text-white text-[2.5em]">
-                            &nbsp;believe&nbsp;
-                        </OutlinedP>
-                        <OutlinedP className="text-persona-red text-[2em]">
-                            in the
-                        </OutlinedP>
-                        <OutlinedP className="text-white text-[2.5em]">
-                            &nbsp;Phantom Thieves&nbsp;
-                        </OutlinedP>
-                        <OutlinedP className="text-persona-red text-[2em]">
-                            ?
-                        </OutlinedP>
+        <div className="min-h-screen flex flex-col">
+            <div className="flex-grow content-center">
+                <div
+                    id="main-body"
+                    className="w-max-[1000px] justify-self-center p-[10px]"
+                >
+                    <div className="-z-10">
+                        <svg
+                            className="h-screen w-screen top-0 left-0 fixed -z-10"
+                            preserveAspectRatio="none"
+                            viewBox="0 0 393 852"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M-0.924805 671.006L0 671.146V852H-1.5V670.918L-0.924805 671.006ZM394.075 731.006L394.5 731.07V852H393V730.842L394.075 731.006ZM393 730.842L0 671.146V571.009L393 348.64V730.842ZM0 571.009L-0.753906 571.436L-1.5 571.857V222.222L-1.12988 222.122L0 221.818V571.009ZM394.5 347.792L394.246 347.936L393 348.64V116.251L393.87 116.018L394.5 115.848V347.792ZM393 116.251L0 221.818V48.2695L195.618 0.485352L195.56 0H393V116.251ZM195.56 0H0V48.2695L-0.881836 48.4854L-1.5 48.6367V-0.5H195.5L195.56 0Z"
+                                fill="#C60000"
+                            />
+                        </svg>
                     </div>
-                </div>
-                <div className="flex items-baseline leading-[1] w-fit">
-                    <div className="-rotate-8">
-                        <OutlinedPUppercase className="text-persona-red text-[4em] tracking-[-0.32em]">
-                            A
+
+                    <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
+
+                    <div className="inline-flex items-center">
+                        <OutlinedPUppercase className="text-persona-red text-[4em] tracking-[-0.32em] pr-4">
+                            Q
                         </OutlinedPUppercase>
+                        <div className="leading-[0.689]">
+                            <OutlinedP className="text-persona-red text-[2em]">
+                                Do you
+                            </OutlinedP>
+                            <OutlinedP className="text-white text-[2.5em]">
+                                &nbsp;believe&nbsp;
+                            </OutlinedP>
+                            <OutlinedP className="text-persona-red text-[2em]">
+                                in the
+                            </OutlinedP>
+                            <OutlinedP className="text-white text-[2.5em]">
+                                &nbsp;Phantom Thieves&nbsp;
+                            </OutlinedP>
+                            <OutlinedP className="text-persona-red text-[2em]">
+                                ?
+                            </OutlinedP>
+                        </div>
                     </div>
-                    <p>
-                        <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.5em]">
-                            YE<span style={{ letterSpacing: '0' }}>S</span>
-                        </OutlinedGoldenGradientSpan>
-                        <OutlinedGoldenGradientSpan
-                            className="text-[9.25em]"
-                            font="font-francoisOne"
-                        >
-                            {percentageVotedYes ?? ''}
-                        </OutlinedGoldenGradientSpan>
-
-                        <OutlinedGoldenGradientSpan
-                            className="text-[4em]"
-                            font="font-francoisOne"
-                        >
-                            %
-                        </OutlinedGoldenGradientSpan>
-                    </p>
-                </div>
-                <div className="relative mb-10 md:mb-5">
-                    <Bar percentageVotedYes={percentageVotedYes} />
-                    <div className="absolute inset-0 flex justify-between items-center bottom-[-5em] md:bottom-[-6em]">
-                        <button onClick={() => castVote('yes')}>
-                            <div
-                                className="flex flex-col leading-none cursor-pointer"
-                                onMouseEnter={() => setIsHovering('yes')}
-                                onMouseLeave={() => setIsHovering(null)}
+                    <div className="flex items-baseline leading-[1] w-fit">
+                        <div className="-rotate-8">
+                            <OutlinedPUppercase className="text-persona-red text-[4em] tracking-[-0.32em]">
+                                A
+                            </OutlinedPUppercase>
+                        </div>
+                        <p>
+                            <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.5em]">
+                                YE<span style={{ letterSpacing: '0' }}>S</span>
+                            </OutlinedGoldenGradientSpan>
+                            <OutlinedGoldenGradientSpan
+                                className="text-[9.25em]"
+                                font="font-francoisOne"
                             >
-                                {(isHovering === 'yes' || userVote === 'yes') &&
-                                isHovering !== 'no' ? (
-                                    <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
-                                        YE
-                                        <span style={{ letterSpacing: '0' }}>
-                                            S
-                                        </span>
-                                    </OutlinedGoldenGradientSpan>
-                                ) : (
-                                    <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
-                                        Yes
-                                    </OutlinedPUppercase>
-                                )}
+                                {percentageVotedYes ?? ''}
+                            </OutlinedGoldenGradientSpan>
 
-                                {(isHovering === 'yes' || userVote === 'yes') &&
-                                isHovering !== 'no' ? (
-                                    <OutlinedGoldenGradientSpan
-                                        className="text-[1.5em]"
-                                        font="font-p5hatty"
-                                    >
-                                        {yesCount} votes
-                                    </OutlinedGoldenGradientSpan>
-                                ) : (
-                                    <OutlinedP className="text-[1.5em]">
-                                        {yesCount} votes
-                                    </OutlinedP>
-                                )}
-                            </div>
-                        </button>
-
-                        <button onClick={() => castVote('no')}>
-                            <div
-                                className="flex flex-col leading-none cursor-pointer"
-                                onMouseEnter={() => setIsHovering('no')}
-                                onMouseLeave={() => setIsHovering(null)}
+                            <OutlinedGoldenGradientSpan
+                                className="text-[4em]"
+                                font="font-francoisOne"
                             >
-                                {(isHovering === 'no' || userVote === 'no') &&
-                                isHovering !== 'yes' ? (
-                                    <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.35em]">
-                                        N
-                                        <span style={{ letterSpacing: '0' }}>
-                                            O
-                                        </span>
-                                    </OutlinedGoldenGradientSpan>
-                                ) : (
-                                    <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
-                                        N
-                                        <span style={{ letterSpacing: '0' }}>
-                                            O
-                                        </span>
-                                    </OutlinedPUppercase>
-                                )}
-
-                                {(isHovering === 'no' || userVote === 'no') &&
-                                isHovering !== 'yes' ? (
-                                    <OutlinedGoldenGradientSpan
-                                        className="text-[1.5em]"
-                                        font="font-p5hatty"
-                                    >
-                                        {noCount} votes
-                                    </OutlinedGoldenGradientSpan>
-                                ) : (
-                                    <OutlinedP className="text-[1.5em]">
-                                        {noCount} votes
-                                    </OutlinedP>
-                                )}
-                            </div>
-                        </button>
+                                %
+                            </OutlinedGoldenGradientSpan>
+                        </p>
                     </div>
-                </div>
+                    <div className="relative mb-10 md:mb-5">
+                        <Bar percentageVotedYes={percentageVotedYes} />
+                        <div className="absolute inset-0 flex justify-between items-center bottom-[-5em] md:bottom-[-6em]">
+                            <button onClick={() => castVote('yes')}>
+                                <div
+                                    className="flex flex-col leading-none cursor-pointer"
+                                    onMouseEnter={() => setIsHovering('yes')}
+                                    onMouseLeave={() => setIsHovering(null)}
+                                >
+                                    {(isHovering === 'yes' ||
+                                        userVote === 'yes') &&
+                                    isHovering !== 'no' ? (
+                                        <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
+                                            YE
+                                            <span
+                                                style={{ letterSpacing: '0' }}
+                                            >
+                                                S
+                                            </span>
+                                        </OutlinedGoldenGradientSpan>
+                                    ) : (
+                                        <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em] indent-[-0.3em]">
+                                            Yes
+                                        </OutlinedPUppercase>
+                                    )}
 
-                <div className="flex flex-col items-center text-center">
-                    <OutlinedP className="text-[1.5em]">
-                        {userVote
-                            ? `You voted ${userVote.toUpperCase()}.`
-                            : 'Click on "YES" or "NO" above to vote.'}
-                    </OutlinedP>
-                    <OutlinedP
-                        className="text-[1.5em] text-black leading-none"
-                        textStroke="3px var(--color-persona-red)"
-                    >
-                        Thank you for your time. Please also leave a comment.
-                    </OutlinedP>
-                    <img
-                        src="./assets/logo.png"
-                        className="w-10 h-10"
-                        alt="Tophat and mask with flames coming out from the mask"
-                        draggable="false"
-                    />
+                                    {(isHovering === 'yes' ||
+                                        userVote === 'yes') &&
+                                    isHovering !== 'no' ? (
+                                        <OutlinedGoldenGradientSpan
+                                            className="text-[1.5em]"
+                                            font="font-p5hatty"
+                                        >
+                                            {yesCount} votes
+                                        </OutlinedGoldenGradientSpan>
+                                    ) : (
+                                        <OutlinedP className="text-[1.5em]">
+                                            {yesCount} votes
+                                        </OutlinedP>
+                                    )}
+                                </div>
+                            </button>
+
+                            <button onClick={() => castVote('no')}>
+                                <div
+                                    className="flex flex-col leading-none cursor-pointer"
+                                    onMouseEnter={() => setIsHovering('no')}
+                                    onMouseLeave={() => setIsHovering(null)}
+                                >
+                                    {(isHovering === 'no' ||
+                                        userVote === 'no') &&
+                                    isHovering !== 'yes' ? (
+                                        <OutlinedGoldenGradientSpan className="text-[2.5em] tracking-[-0.35em]">
+                                            N
+                                            <span
+                                                style={{ letterSpacing: '0' }}
+                                            >
+                                                O
+                                            </span>
+                                        </OutlinedGoldenGradientSpan>
+                                    ) : (
+                                        <OutlinedPUppercase className="text-[2.5em] tracking-[-0.35em]">
+                                            N
+                                            <span
+                                                style={{ letterSpacing: '0' }}
+                                            >
+                                                O
+                                            </span>
+                                        </OutlinedPUppercase>
+                                    )}
+
+                                    {(isHovering === 'no' ||
+                                        userVote === 'no') &&
+                                    isHovering !== 'yes' ? (
+                                        <OutlinedGoldenGradientSpan
+                                            className="text-[1.5em]"
+                                            font="font-p5hatty"
+                                        >
+                                            {noCount} votes
+                                        </OutlinedGoldenGradientSpan>
+                                    ) : (
+                                        <OutlinedP className="text-[1.5em]">
+                                            {noCount} votes
+                                        </OutlinedP>
+                                    )}
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center">
+                        <OutlinedP className="text-[1.5em]">
+                            {userVote
+                                ? `You voted ${userVote.toUpperCase()}.`
+                                : 'Click on "YES" or "NO" above to vote.'}
+                        </OutlinedP>
+                        <OutlinedP
+                            className="text-[1.5em] text-black leading-none"
+                            textStroke="3px var(--color-persona-red)"
+                        >
+                            Thank you for your time. Please also leave a
+                            comment.
+                        </OutlinedP>
+                        <img
+                            src="./assets/logo.png"
+                            className="w-10 h-10"
+                            alt="Tophat and mask with flames coming out from the mask"
+                            draggable="false"
+                        />
+                    </div>
                 </div>
             </div>
             <footer className="text-center justify-self-center w-screen">
                 <hr className="h-[2px] bg-persona-red border-0 mix-blend-difference" />
-                <div className="flex flex-col items-center py-[10px] px-[20px]">
+                <div className="flex flex-col items-center pt-[10px] pb-[20px] px-[20px]">
                     <OutlinedP
                         className="text-[1.5em] text-black"
                         textStroke="3px var(--color-persona-red)"
@@ -267,20 +280,20 @@ function App() {
                         Phantom Aficionado
                     </OutlinedP>
 
-                    <div className="flex-row">
+                    <div>
                         <OutlinedP
-                            className="text-[1.25em]"
+                            className="text-[1.25em] leading-none"
                             textStroke="4px black"
                         >
                             Fanmade re-creation of the "Phansite" from PERSONA 5
-                            by Kim Pham - View code on
+                            by Kim Pham.
                         </OutlinedP>
                         <a href="https://github.com/kimypham/phansite">
                             <OutlinedP
                                 className="text-[1.25em] ml-1"
                                 textStroke="4px black"
                             >
-                                GitHub!
+                                View code on GitHub!
                             </OutlinedP>
                         </a>
                     </div>
