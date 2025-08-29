@@ -89,35 +89,23 @@ function App() {
 
     return (
         <div>
-            <div className="w-max-[1000px] justify-self-center p-[20px]">
+            <div
+                id="main-body"
+                className="w-max-[1000px] justify-self-center p-[10px]"
+            >
                 <div className="-z-10">
-                    <img
-                        src="./assets/background/top-triangle.svg"
-                        className="w-full md:max-w-1/2 top-0 md:top-[-1em] left-0 fixed -z-5"
-                        alt="Black triangle used in background"
-                        draggable="false"
-                    />
-                    {window.innerWidth < 768 ? (
-                        <img
-                            src="./assets/background/middle-triangle.svg"
-                            className="w-full max-h-2/3 top-[5em] left-0 fixed -z-5"
-                            alt="Black triangle used in background"
-                            draggable="false"
+                    <svg
+                        className="h-screen w-screen top-0 left-0 fixed -z-10"
+                        preserveAspectRatio="none"
+                        viewBox="0 0 393 852"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M-0.924805 671.006L0 671.146V852H-1.5V670.918L-0.924805 671.006ZM394.075 731.006L394.5 731.07V852H393V730.842L394.075 731.006ZM393 730.842L0 671.146V571.009L393 348.64V730.842ZM0 571.009L-0.753906 571.436L-1.5 571.857V222.222L-1.12988 222.122L0 221.818V571.009ZM394.5 347.792L394.246 347.936L393 348.64V116.251L393.87 116.018L394.5 115.848V347.792ZM393 116.251L0 221.818V48.2695L195.618 0.485352L195.56 0H393V116.251ZM195.56 0H0V48.2695L-0.881836 48.4854L-1.5 48.6367V-0.5H195.5L195.56 0Z"
+                            fill="#C60000"
                         />
-                    ) : (
-                        <img
-                            src="./assets/background/middle-triangle-desktop.svg"
-                            className="w-full h-full left-0 top-[-1em] md:top-[-3em] fixed scale-y-[70%] -z-5"
-                            alt="Black triangle used in background"
-                            draggable="false"
-                        />
-                    )}
-                    <img
-                        src="./assets/background/bottom-triangle.svg"
-                        className="w-full md:max-h-2/3 bottom-0 md:bottom-[-5em] md:scale-y-[50%] left-0 fixed -z-50"
-                        alt="Black triangle used in background"
-                        draggable="false"
-                    />
+                    </svg>
                 </div>
 
                 <OutlinedH1>Phantom Thief Questionare</OutlinedH1>
@@ -255,41 +243,56 @@ function App() {
                             ? `You voted ${userVote.toUpperCase()}.`
                             : 'Click on "YES" or "NO" above to vote.'}
                     </OutlinedP>
-                    <OutlinedP className="text-[1.5em]">
+                    <OutlinedP
+                        className="text-[1.5em] text-black leading-none"
+                        textStroke="3px var(--color-persona-red)"
+                    >
                         Thank you for your time. Please also leave a comment.
                     </OutlinedP>
                     <img
                         src="./assets/logo.png"
-                        className="w-10 h-10 mb-3"
+                        className="w-10 h-10"
                         alt="Tophat and mask with flames coming out from the mask"
                         draggable="false"
                     />
                 </div>
             </div>
-            <footer className="text-center w-screen">
+            <footer className="text-center justify-self-center w-screen">
                 <hr className="h-[2px] bg-persona-red border-0 mix-blend-difference" />
                 <div className="flex flex-col items-center py-[10px] px-[20px]">
-                    <OutlinedP className="text-[1em]">
+                    <OutlinedP
+                        className="text-[1.5em] text-black"
+                        textStroke="3px var(--color-persona-red)"
+                    >
                         Phantom Aficionado
                     </OutlinedP>
 
                     <div className="flex-row">
-                        <OutlinedP className="text-[1em]">
+                        <OutlinedP
+                            className="text-[1.25em]"
+                            textStroke="4px black"
+                        >
                             Fanmade re-creation of the "Phansite" from PERSONA 5
                             by Kim Pham - View code on
                         </OutlinedP>
                         <a href="https://github.com/kimypham/phansite">
-                            <OutlinedP className="text-[1em] ml-1">
+                            <OutlinedP
+                                className="text-[1.25em] ml-1"
+                                textStroke="4px black"
+                            >
                                 GitHub!
                             </OutlinedP>
                         </a>
                     </div>
-                    <OutlinedP className="text-[1em] w-max-[1000px]">
+                    <OutlinedP
+                        className="text-[1em] w-max-[1000px] leading-[1em]"
+                        textStroke="4px black"
+                    >
                         © ATLUS. © SEGA. All rights reserved. PERSONA and all
                         related elements are trademarks of ATLUS Co., Ltd. This
                         is an unofficial fan recreation created for
-                        educational/entertainment purposes only. Not affiliated
-                        with or endorsed by ATLUS or SEGA.
+                        entertainment purposes only. Not affiliated with or
+                        endorsed by ATLUS or SEGA.
                     </OutlinedP>
                 </div>
             </footer>
